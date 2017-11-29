@@ -1,0 +1,462 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+        <h2>IE11 Transform-Style: preserve-3D</h2>
+        <p>3D transform works with IE11, but the preserve 3D property doesn't</p>
+        <div id="trans3D-div1">
+            <div id="trans3D-div2">HELLO
+                <div id="trans3D-div3">YELLOW</div>
+            </div>
+        </div>
+
+        transform-style: preserve-3d<input type="checkbox" onchange="checkFlat()" id="tf" /><br><br>
+        Rotate:<br>
+        <input type="range" min="-360" max="360" value="70" onchange="changeRot(this.value)" /><br>
+        transform: rotateY:(<span id="persp">70deg</span>);
+        <hr>
+        <h2>Flexbox has many bugs in internet explorer, such as:</h2>
+        <div class="clearfix">
+            <div class="flex-box flex-box-1 min-height" id="flex-box-1">
+                <header class="flex-header">Header</header>
+                <article class="flex-article">This content area should expand to fill the entire box, but in IE11 it doesn't.
+                    The box's height is being set via <code>min-height</code>, which appears to be the problem.
+                    It works when the box's height is set via <code>height</code> rather than <code>min-height</code>.</article>
+                <footer class="flex-footer">Footer</footer>
+            </div>
+        ﻿   <div class="flex-box flex-box-2 min-height" id="flex-box-2">
+                <span>I should be vertically centered in parent div, but I'm not in IE11</span>
+            </div>
+        </div>
+        <br>
+        <p>Change min-height (unchecked) to height (checked) <input type="checkbox" onchange="switchHeight()" id="height-switch" /></p>
+        <br><br>
+        <hr>
+        <br>
+        <h2>Rebeccapurple... </h2>
+        <p>This is a new color that belongs to the level 4 specifications. It corresponds to #663399 and RGB 102,51,153</p>
+        <p>It works on IE 11... but only on Windows 10. Why? Because Microsoft, probably.</p>
+        <div class="becca-div"><strong>REBECCAPURPLE</strong></div>
+        <div class="not-becca-div"><strong>NORMAL PURPLE</strong></div>
+        <p>However, it works on IE11 on virtualized Win7, but this might be an exception. For the time being, better to use the hex code.</p>
+        <br><br>
+        <hr>
+        <br>
+        <h2>Who's afraid of GRID?</h2>
+        <button onclick="autofier()">CLICK ME!</button> and discover the magic of auto-placement!
+        <br>
+        <br>
+        <div class="grandfather-div">
+            <div class="father-div father-div-1">
+                <div class="son son-1">
+                    <p>Hi, I'm son 1</p>
+                </div>
+                <div class="son son-2">
+                    <p>Hi, I'm son 2</p>
+                </div>
+                <div class="son son-3">
+                    <p>Hi, I'm son 3</p>
+                </div>
+                <div class="son son-4">
+                    <p>Hi, I'm son 4</p>
+                </div>
+                <div class="son son-5">
+                    <p>Hi, I'm son 5</p>
+                </div>
+                <div class="son son-6">
+                    <p>Hi, I'm son 6</p>
+                </div>
+            </div>
+
+            <div class="father-div father-div-2">
+                <div class="son son-1">
+                    <p>Hi, I'm son 1</p>
+                </div>
+                <div class="son son-2">
+                    <p>Hi, I'm son 2</p>
+                </div>
+                <div class="son son-3">
+                    <p>Hi, I'm son 3</p>
+                </div>
+                <div class="son son-4">
+                    <p>Hi, I'm son 4</p>
+                </div>
+                <div class="son son-5">
+                    <p>Hi, I'm son 5</p>
+                </div>
+                <div class="son son-6">
+                    <p>Hi, I'm son 6</p>
+                </div>
+            </div>
+            <div class="css-holder css-holder-1">
+                <div style="text-align: center">CHROME/SAFARI/FIREFOX</div>
+                <ul>.father-div
+                    <li>{</li>
+                    <li>&nbsp;border-radius: 10px;</li>
+                    <li><strong>&nbsp;display: grid;</strong></li>
+                    <li>&nbsp;margin-top: 20px</li>
+                    <li>&nbsp;overflow: hidden;</li>
+                    <li>&nbsp;height: 500px;</li>
+                    <li>&nbsp;width: 500px;</li>
+                </ul>
+                <ul>
+                    <li><strong>&nbsp;justify-self: center;</strong></li>
+                    <li><strong>&nbsp;grid-template-columns: [first-column] 1fr [second-column] 1fr [third-column] 1fr [last-column];</strong></li>
+                    <li><strong>&nbsp;grid-template-rows: [first-row] 1fr [second-row] 1fr [third-row] 1fr [last-row];</strong></li>
+                    <li>}</li>
+                </ul>
+                <ul>
+                    <li>.son</li>
+                    <li>{</li>
+                    <li>&nbsp;display: flex;</li>
+                    <li>&nbsp;align-items: center;</li>
+                    <li>&nbsp;justify-content: center;</li>
+                    <li>}</li>
+                </ul>
+                <ul>
+                    <li>.son-1</li>
+                    <li>{</li>
+                    <li>&nbsp;background: orange;</li>
+                    <li><strong>&nbsp;grid-column-start: first-column;</strong></li>
+                    <li><strong>&nbsp;grid-column-end: third-column;</strong></li>
+                    <li>}</li>
+                </ul>
+                <ul>
+                    <li>.son-2</li>
+                    <li>{</li>
+                    <li>&nbsp; background: red;</li>
+                    <li><strong>&nbsp;grid-column-start: second-column;</strong></li>
+                    <li><strong>&nbsp;grid-row-start: second-row;</strong></li>
+                    <li>}</li>
+                </ul>
+                <ul>
+                    <li>.son-3</li>
+                    <li>{</li>
+                    <li>&nbsp;background: blue;</li>
+                    <li><strong>&nbsp;grid-row: first-row / third-row;</strong></li>
+                    <li><strong>&nbsp;grid-column-start: third-column;</strong></li>
+                    <li>}</li>
+                </ul>
+                <ul>
+                    <li>.son-4</li>
+                    <li>{</li>
+                    <li>&nbsp;background: yellow;</li>
+                    <li><strong>&nbsp;grid-row-start: second-row;</strong></li>
+                    <li><strong>&nbsp;grid-row-end: last-row;</strong></li>
+                    <li>}</li>
+                </ul>
+                <ul>
+                    <li>.son-5</li>
+                    <li>{</li>
+                    <li>&nbsp;background: purple;</li>
+                    <li>}</li>
+                </ul>
+                <ul>
+                    <li>.son-6</li>
+                    <li>{</li>
+                    <li>&nbsp;background: pink;</li>
+                    <li>}
+                </ul></div>
+            <div class="css-holder css-holder-2">
+                <center>IE 10/11</center>
+                <ul>.father-div
+                    <li>{</li>
+                    <li>&nbsp;border-radius: 10px;</li>
+                   <li> <strong>&nbsp;display: -ms-grid;</strong></li>
+                    <li>&nbsp;margin-top: 20px;</li>
+                    <li>&nbsp;overflow: hidden;</li>
+                    <li>&nbsp;height: 500px;</li>
+                    <li>&nbsp;width: 500px;</li>
+                </ul>
+                <ul>
+                    <li><strong>&nbsp;-ms-grid-column-align: center;</strong></li>
+                    <li><strong>&nbsp;-ms-grid-columns: 1fr 1fr 1fr;</strong></li>
+                    <li><strong>&nbsp;-ms-grid-rows: 1fr 1fr 1fr;</strong></li>
+                    <li>}</li>
+                </ul>
+                <ul>
+                    <li>.son</li>
+                    <li>{</li>
+                    <li>&nbsp;display: flex;</li>
+                    <li>&nbsp;align-items: center;</li>
+                    <li>&nbsp;justify-content: center;</li>
+                    <li>}</li>
+                </ul>
+                <ul>
+                    <li>.son-1</li>
+                    <li>{</li>
+                    <li>&nbsp;background: orange;</li>
+                    <li><strong>&nbsp;-ms-grid-column: 1;</strong></li>
+                    <li><strong>-ms-grid-column-span: 2;</strong></li>
+                    <li><strong>-ms-grid-row: 1;</strong></li>
+                    <li>}</li>
+                </ul>
+                <ul>
+                    <li>.son-2</li>
+                    <li>{</li>
+                    <li>&nbsp;background: red;</li>
+                    <li>&nbsp;<strong>-ms-grid-column: 2;</strong></li>
+                    <li>&nbsp;-ms-grid-row: 2;</li>
+                    <li>}</li>
+                </ul>
+                <ul>
+                    <li>.son-3</li>
+                    <li>{</li>
+                    <li>&nbsp;background: blue;</li>
+                    <li>&nbsp;<strong>-ms-grid-column: 3;</strong></li>
+                    <li>&nbsp;<strong>-ms-grid-row: 1;</strong></li>
+                    <li>&nbsp;<strong>-ms-grid-row-span: 2;</strong></li>
+                    <li>}</li>
+                </ul>
+                <ul>
+                    <li>.son-4</li>
+                    <li>{</li>
+                    <li>&nbsp;background: yellow;</li>
+                    <li>&nbsp;<strong>-ms-grid-column: 1;</strong></li>
+                    <li>&nbsp;<strong>-ms-grid-row: 2;</strong></li>
+                    <li>&nbsp;<strong>-ms-grid-row-span: 2;</strong></li>
+                    <li>}</li>
+                </ul>
+                <ul>
+                    <li>.son-5</li>
+                    <li>{</li>
+                    <li>&nbsp;background: purple;</li>
+                    <li>&nbsp;<strong>-ms-grid-column: 2;</strong></li>
+                    <li>&nbsp;<strong>-ms-grid-row: 3;</strong></li>
+                    <li>}</li>
+                </ul>
+                <ul>
+                    <li>.son-6</li>
+                    <li>{</li>
+                    <li>&nbsp;background: pink;</li>
+                    <li>&nbsp;<strong>-ms-grid-column: 3;</strong></li>
+                    <li>&nbsp;<strong>-ms-grid-row: 3;</strong></li>
+                    <li>}
+                </ul></div>
+        </div>
+        <div class="one-more-thing">
+            <div class="one-more-div">
+            <p>Properties which don't exist in IE Grid:</p>
+            <ul>
+                <li><strong>grid-area</strong><br>Used to give a name to an area</li>
+                <li><strong>grid-template-areas</strong><br>Used to define the area on the grid</li>
+                <li><strong>grid-auto-columns</strong><br>Used to tell the grid how to behave in case of elements positioned in columns out of the specified ones</li>
+                <li><strong>grid-auto-rows</strong><br>Used to tell the grid how to behave in case elements positioned in rows out of the specified ones</li>
+                <li><strong>grid-auto-flow</strong><br>Used to tell the grid how to autofill the empty cells</li>
+            </ul>
+            </div>
+        </div>
+        <br><br>
+        <hr>
+        <br>
+        <h2>Scrollbar Extravaganza</h2>
+        <div class="scrollbar-div" id="placeholder-div">
+            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem deleniti accusantium quasi ab ad officia cupiditate sed aliquam nobis expedita velit dolorum perspiciatis pariatur nam vero et magnam soluta tempora!</div>
+            <div>Eveniet deserunt consequatur porro molestiae nulla optio quis totam libero iste nemo odit eum facilis sapiente. Harum similique cupiditate voluptas ea optio sunt molestias eius ab qui obcaecati nesciunt id?</div>
+            <div>Necessitatibus delectus sint vitae eos quasi optio esse dignissimos enim laborum ipsum harum perspiciatis eaque. Magnam fugiat delectus neque laboriosam in accusamus a veniam inventore asperiores consequatur nihil quae quo.</div>
+            <div>Eligendi quaerat nesciunt sint nobis qui? Temporibus maiores esse molestiae hic cum culpa sed recusandae dolore sequi modi. Quos illum debitis odio consequatur voluptatum error aliquam rem similique officia recusandae.</div>
+            <div>Ex suscipit earum reiciendis eaque dolorem inventore accusantium modi voluptatum saepe cum quam tempora autem corrupti illum deleniti iure rerum mollitia quo ducimus soluta ea! Illum aliquid consectetur vitae quod?</div>
+            <div>Minus rem tempora quo. Deleniti mollitia dignissimos laborum quis quos facilis dolore soluta error provident recusandae veniam minus consequatur blanditiis. Facere tempore praesentium soluta fugiat quia eligendi dolores ullam doloribus!</div>
+            <div>Aut nulla perferendis officiis accusamus ut aspernatur hic possimus amet blanditiis incidunt repudiandae ullam inventore ipsam recusandae nihil provident facilis totam quibusdam natus eligendi optio quia sapiente rerum quos illo?</div>
+            <div>Porro soluta nisi impedit voluptatem ex accusantium facilis amet quod blanditiis quia similique totam enim id ratione minus quo modi sequi nam dicta iste aliquid itaque velit accusamus quibusdam consequuntur.</div>
+            <div>Ab assumenda in ad nesciunt recusandae labore voluptates vero suscipit tenetur ullam sint beatae odio harum quo aperiam quas temporibus pariatur consectetur saepe eveniet minus voluptatem atque iusto similique repudiandae?</div>
+            <div>In enim odit repellat maxime harum eum expedita fuga vel eaque quaerat optio hic sapiente eveniet neque dolorum eligendi pariatur possimus aliquid minus officiis mollitia quia voluptates sunt nulla est!</div>
+        </div>
+        <div class="scrollbar-div hidden" id="scroll-div">
+            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem deleniti accusantium quasi ab ad officia cupiditate sed aliquam nobis expedita velit dolorum perspiciatis pariatur nam vero et magnam soluta tempora!</div>
+            <div>Eveniet deserunt consequatur porro molestiae nulla optio quis totam libero iste nemo odit eum facilis sapiente. Harum similique cupiditate voluptas ea optio sunt molestias eius ab qui obcaecati nesciunt id?</div>
+            <div>Necessitatibus delectus sint vitae eos quasi optio esse dignissimos enim laborum ipsum harum perspiciatis eaque. Magnam fugiat delectus neque laboriosam in accusamus a veniam inventore asperiores consequatur nihil quae quo.</div>
+            <div>Eligendi quaerat nesciunt sint nobis qui? Temporibus maiores esse molestiae hic cum culpa sed recusandae dolore sequi modi. Quos illum debitis odio consequatur voluptatum error aliquam rem similique officia recusandae.</div>
+            <div>Ex suscipit earum reiciendis eaque dolorem inventore accusantium modi voluptatum saepe cum quam tempora autem corrupti illum deleniti iure rerum mollitia quo ducimus soluta ea! Illum aliquid consectetur vitae quod?</div>
+            <div>Minus rem tempora quo. Deleniti mollitia dignissimos laborum quis quos facilis dolore soluta error provident recusandae veniam minus consequatur blanditiis. Facere tempore praesentium soluta fugiat quia eligendi dolores ullam doloribus!</div>
+            <div>Aut nulla perferendis officiis accusamus ut aspernatur hic possimus amet blanditiis incidunt repudiandae ullam inventore ipsam recusandae nihil provident facilis totam quibusdam natus eligendi optio quia sapiente rerum quos illo?</div>
+            <div>Porro soluta nisi impedit voluptatem ex accusantium facilis amet quod blanditiis quia similique totam enim id ratione minus quo modi sequi nam dicta iste aliquid itaque velit accusamus quibusdam consequuntur.</div>
+            <div>Ab assumenda in ad nesciunt recusandae labore voluptates vero suscipit tenetur ullam sint beatae odio harum quo aperiam quas temporibus pariatur consectetur saepe eveniet minus voluptatem atque iusto similique repudiandae?</div>
+            <div>In enim odit repellat maxime harum eum expedita fuga vel eaque quaerat optio hic sapiente eveniet neque dolorum eligendi pariatur possimus aliquid minus officiis mollitia quia voluptates sunt nulla est!</div>
+        </div>
+        <div class="scrollbar-inputs">
+            <br>
+            <input type="checkbox" onchange="stylebar()" id="stylecheck"> Style scrollbar</input>
+        </div>
+        <div>
+            It is possible to style the scrollbar in all the major browsers except for firefox, IE and Edge.
+        </div>
+        <br>
+        <br>
+        <hr>
+        <br>
+        <h2>image-rendering: pixelated</h2><input type="checkbox" onchange="pixelate()" id="pixelater"> Pixelate!</input>
+        <br>
+        <br>
+        <br>
+        <div class="flex-for-pics">
+            <div><img id="static-image" class="static-image" src="./img/chart.png" /></div>
+            <div><img id="img-to-pixelate" class="dynamic-image" src="./img/chart.png" /></div>
+            <div class="background-css" id="background-to-pixelate"></div>
+        </div>
+        <div class="flex-for-words">
+            <div>Image</div>
+            <div>Image + Transform</div>
+            <div>Background-image</div>
+        </div>
+        <br>
+        <br>
+        <h2>Position: Sticky and Tables</h2>
+        <br>
+        <br>
+        <p>Position: Sticky is supporter by all major browser, but there are a couple of issues.
+        Let's take a look at this table.
+
+        Its &lt;th&gt; tags are sticky and it works the way it should</p>
+        <table class="tablab1" border="1">
+        <thead>
+            <tr>
+                <th class="sticky-header">ROW</th>
+                <th class="sticky-header" title="Hello">Column Header 1</th>
+                <th class="sticky-header" title="XOXO">Column Header 2</th>
+            </tr>
+        </thead>
+            <tbody>
+            <tr>
+                <th>ROW</th>
+                <td>ELEMENT</td>
+                <td>ELEMENT</td>
+            </tr>
+            <tr>
+                <th>ROW</th>
+                <td>ELEMENT</td>
+                <td>ELEMENT</td>
+            </tr>
+            <tr>
+                <th>ROW</th>
+                <td>ELEMENT</td>
+                <td>ELEMENT</td>
+            </tr>
+            <tr>
+                <th>ROW</th>
+                <td>ELEMENT</td>
+                <td>ELEMENT</td>
+            </tr>
+            <tr>
+                <th>ROW</th>
+                <td>ELEMENT</td>
+                <td>ELEMENT</td>
+            </tr>
+            <tr>
+                <th>ROW</th>
+                <td>ELEMENT</td>
+                <td>ELEMENT</td>
+            </tr>
+            <tr>
+                <th>ROW</th>
+                <td>ELEMENT</td>
+                <td>ELEMENT</td>
+            </tr>
+            <tr>
+                <th>ROW</th>
+                <td>ELEMENT</td>
+                <td>ELEMENT</td>
+            </tr>
+            <tr>
+                <th>ROW</th>
+                <td>ELEMENT</td>
+                <td>ELEMENT</td>
+            </tr>
+            <tr>
+                <th>ROW</th>
+                <td>ELEMENT</td>
+                <td>ELEMENT</td>
+            </tr>
+            <tr>
+                <th>ROW</th>
+                <td>ELEMENT</td>
+                <td>ELEMENT</td>
+            </tr>
+            </tbody>
+        </table>
+        <br>
+        <p>However things change in this situation where our header has more than one row.
+            It works as expected in Safari but not on Chrome and Firefox.</p>
+        <br>
+        <table class="tablab2" border="1">
+            <thead class="sticky-header">
+            <tr>
+                <th class="sticky-header" rowspan="2"></th>
+                <th class="sticky-header" colspan="2"title="Hello">Table Header</th>
+            </tr>
+            <tr>
+                <th class="sticky-header" title="Hey ya">Column Header 1</th>
+                <th class="sticky-header" title="XOXO">Column Header 2</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th>ROW</th>
+                <td>ELEMENT</td>
+                <td>ELEMENT</td>
+            </tr>
+            <tr>
+                <th>ROW</th>
+                <td>ELEMENT</td>
+                <td>ELEMENT</td>
+            </tr>
+            <tr>
+                <th>ROW</th>
+                <td>ELEMENT</td>
+                <td>ELEMENT</td>
+            </tr>
+            <tr>
+                <th>ROW</th>
+                <td>ELEMENT</td>
+                <td>ELEMENT</td>
+            </tr>
+            <tr>
+                <th>ROW</th>
+                <td>ELEMENT</td>
+                <td>ELEMENT</td>
+            </tr>
+            <tr>
+                <th>ROW</th>
+                <td>ELEMENT</td>
+                <td>ELEMENT</td>
+            </tr>
+            <tr>
+                <th>ROW</th>
+                <td>ELEMENT</td>
+                <td>ELEMENT</td>
+            </tr>
+            <tr>
+                <th>ROW</th>
+                <td>ELEMENT</td>
+                <td>ELEMENT</td>
+            </tr>
+            <tr>
+                <th>ROW</th>
+                <td>ELEMENT</td>
+                <td>ELEMENT</td>
+            </tr>
+            <tr>
+                <th>ROW</th>
+                <td>ELEMENT</td>
+                <td>ELEMENT</td>
+            </tr>
+            <tr>
+                <th>ROW</th>
+                <td>ELEMENT</td>
+                <td>ELEMENT</td>
+            </tr>
+            </tbody>
+        </table>
+        <br>
+        <br>
+        <script src="js/main.js"></script>
+    </body>
+</html>
